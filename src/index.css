@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.figure-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño mínimo y máximo de las columnas */
+  gap: 10px; /* Espacio entre las figuras */
+}
+
+.figure-container img {
+  width: 100%; /* Ancho completo dentro de su contenedor */
+  height: 150px; /* Altura fija */
+  object-fit: cover; /* Asegura que la imagen cubra completamente el espacio sin distorsionarse */
+  border: 3px solid blue; /* Borde de color azul, puedes cambiarlo */
+}

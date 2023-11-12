@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+
+/* Estilo General - Modo Oscuro */
+body {
+  background-color: #121212;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Estilos para el contenedor principal de la aplicación */
+.app {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.figures-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilo para el input de archivo */
+input[type="file"] {
+  background-color: #1f1f1f;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 20px;
 }
+
+/* Estilo para los cuadros de las figuras */
+.figure-box {
+    position: relative;
+    border: 5px solid transparent;
+  width: 300px; /* Ancho predeterminado */
+  height: 300px; /* Alto predeterminado */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.figure-box.active {
+    border-color: red;
+}
+
+/* Estilo para los botones y el temporizador */
+.figure-box span {
+  position: absolute;
+  right: 10px; /* Posiciona a la derecha */
+  bottom: 10px; /* Posiciona abajo */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 240px;
+  border-radius: 5px;
+  text-align: center;
+  max-height: 30px; /* Un ancho máximo para evitar que se extienda demasiado */
+  display: inline-block; /* O 'block' */
+}
+
+/* Estilo para las imágenes dentro de los cuadros */
+.figure-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Posicionamiento específico para botones y temporizador */
+.figure-box button {
+  bottom: 40px;
+}
+
+.figure-box span {
+  top: 10px;
+}
+
