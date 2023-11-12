@@ -52,7 +52,7 @@ input[type="file"] {
 .figure-box span {
   position: absolute;
   right: 10px; /* Posiciona a la derecha */
-  bottom: 10px; /* Posiciona abajo */
+  top: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
@@ -60,8 +60,11 @@ input[type="file"] {
   margin-top: 240px;
   border-radius: 5px;
   text-align: center;
-  max-height: 30px; /* Un ancho máximo para evitar que se extienda demasiado */
-  display: inline-block; /* O 'block' */
+  display: flex; /* O 'block' */
+}
+
+.figure-box h {
+    font-size: 50px;
 }
 
 /* Estilo para las imágenes dentro de los cuadros */
@@ -76,10 +79,12 @@ input[type="file"] {
   bottom: 40px;
 }
 
-.figure-box span {
-  top: 10px;
-}
 
+#letter {
+    position: absolute;
+    margin: 0px;
+    font-size: 40px;
+}
 
 button {
     position: relative;
