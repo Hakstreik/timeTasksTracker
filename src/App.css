@@ -80,3 +80,22 @@ input[type="file"] {
   top: 10px;
 }
 
+
+button {
+    position: relative;
+    top: -300px;
+    left: 10px;
+    background-color: rgb(255 0 0 / 44%);
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 23px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(100, 0, 0, 0.8); /* Ligeramente más opaco al pasar el cursor */
+}
+

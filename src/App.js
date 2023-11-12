@@ -3,41 +3,28 @@ import './App.css';
 import images from './images/images.js';
 
 function App() {
-  const loadInitialFigures = () => {
-    const savedFigures = localStorage.getItem('figures');
+const loadInitialFigures = () => {
+  const savedFigures = localStorage.getItem('figures');
+  if (savedFigures) {
     const parsedFigures = JSON.parse(savedFigures);
-      if (savedFigures) {      
-          return images.map((image, index) => {
-              for(let i = 0; i < parsedFigures.length; i++){
-                  if(parsedFigures[i].imageUrl == image){
-                      return ({
-                          id: index,
-                          imageUrl: image,
-                          timerRunning: false,
-                          elapsedTime: parsedFigures[i].elapsedTime,
-                      })
-                  }
-              }
-              return({
-                  id: index,
-                  imageUrl: image,
-                  timerRunning: false,
-                  elapsedTime: 0
-              })
-          })
-          
-      } else {
-          return images.map((image, index) => {
-              return ({
-                  id: index,
-                  imageUrl: image,
-                  timerRunning: false,
-                  elapsedTime: 0
-
-              })
-          });
-      }
-  };
+    return images.map((image, index) => {
+      const matchingFigure = parsedFigures.find(pf => pf.imageUrl === image); // Asegúrate de que esta comparación sea correcta
+      return {
+        id: index,
+        imageUrl: image,
+        timerRunning: false, // Presumiblemente, quieres reiniciar este estado
+        elapsedTime: matchingFigure ? matchingFigure.elapsedTime : 0,
+      };
+    });
+  } else {
+    return images.map((image, index) => ({
+      id: index,
+      imageUrl: image,
+      timerRunning: false,
+      elapsedTime: 0,
+    }));
+  }
+};
 
   const [figures, setFigures] = useState(loadInitialFigures);
 
@@ -50,6 +37,14 @@ function App() {
       }
     }));
   };
+
+const resetTimer = (e, figureId) => {
+    e.stopPropagation()
+    setFigures(figures.map(figure => {
+        if (figure.id === figureId) return  { ...figure, elapsedTime: 0 }
+        else return figure
+    }))
+}
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,6 +75,7 @@ function App() {
         {figures.map(figure => (
           <div className={`figure-box ${figure.timerRunning ? 'active' : ''}`} key={figure.id} onClick={() => toggleTimer(figure.id)}>
             <img src={figure.imageUrl} alt={`Figura ${figure.id}`} />
+            <button onClick={(e) => resetTimer(e, figure.id)}>reset</button>
             <span>{formatTime(figure.elapsedTime)}</span>
           </div>
         ))}
