@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Manage Tasks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
+Manage Tasks es una aplicación diseñada para rastrear el tiempo dedicado a diversas tareas, representadas visualmente por imágenes. Cada imagen simboliza una tarea diferente, y la aplicación se encarga de guardar el tiempo dedicado a cada una de ellas.
 
-## Available Scripts
+## Funcionalidad
+Los usuarios pueden iniciar o detener temporizadores asociados a cada tarea mediante clics en las imágenes correspondientes o presionando la tecla asignada a cada tarea. Para reiniciar el tiempo de una tarea a cero, se utiliza un botón de reset.
 
-In the project directory, you can run:
+## Instalación y Configuración
+1. Asegúrate de tener instalado Node.js, preferiblemente la versión 18 (aunque puede funcionar con otras versiones).
+2. Clona o descarga el repositorio del proyecto.
+3. Navega a la carpeta del proyecto y ejecuta `npm start` para iniciar la aplicación.
 
-### `npm start`
+## Uso
+1. Agrega imágenes a la carpeta `/src/imagenes`. Cada imagen representa una tarea diferente.
+2. Abre la aplicación. Las imágenes cargadas aparecerán en pantalla.
+3. Haz clic en una imagen o presiona la tecla correspondiente para iniciar/detener el temporizador de esa tarea.
+4. Usa el botón de reset para poner a cero el temporizador de una tarea.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Contribuciones y Licencia
+Este proyecto es de código abierto y las contribuciones son bienvenidas. La aplicación está bajo una licencia libre.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Explicación del Código
 
-### `npm test`
+### Funciones Clave
+- `loadInitialFigures`: Carga las figuras iniciales y sus estados desde el almacenamiento local.
+- `toggleTimer`: Inicia o detiene el temporizador de una figura específica.
+- `stopAllTimers`: Detiene todos los temporizadores en ejecución.
+- `resetTimer`: Reinicia el temporizador de una figura específica.
+- `formatTime`: Formatea el tiempo de seguimiento en horas, minutos y segundos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Flujo del Código
+1. **Inicialización de Estados**: Las figuras y sus estados (como el tiempo transcurrido) se inicializan utilizando `useState`.
+2. **Manejo de Eventos de Teclado**: Se utiliza `useEffect` para agregar y eliminar event listeners que manejan la interacción del usuario con el teclado.
+3. **Actualización de Temporizadores**: Otro `useEffect` se encarga de actualizar los temporizadores cada segundo.
+4. **Persistencia de Datos**: Los estados de las figuras se guardan en el almacenamiento local para mantener el seguimiento entre sesiones.
 
-### `npm run build`
+## Agradecimientos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Este proyecto fue desarrollado con la asistencia de ChatGPT de OpenAI, que proporcionó orientación y soporte en la generación de código y documentación.
